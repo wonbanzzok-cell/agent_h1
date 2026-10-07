@@ -1,0 +1,12 @@
+{
+  "name": "agent-h1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Research notes and reports, with scripts that build the .docx reports",
+  "scripts": {
+    "build:report": "node scripts/build_report.js"
+  },
+  "dependencies": {
+    "docx": "^9.9.0"
+  }
+}
