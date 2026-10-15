@@ -19,8 +19,11 @@
 | 경로 | 용도 |
 |------|------|
 | `research/` | 최신 자료조사 노트(`.md`, 영어). 이름: `<주제>-research-<YYYY-MM-DD>.md`. |
-| `report/` | 최신 보고서(`.docx`, 한국어). |
+| `report/` | 최신 보고서(`.docx`, 한국어). `scripts/build_report.js`나 python-docx 스크립트 `scripts/build_<주제>_docx.py`로 만든다. |
 | `scripts/` | 산출물을 만드는 스크립트. `scripts/build_report.js`는 `report/AI_발전_보고서.docx`를 만든다. |
+| `slides/` | 최신 슬라이드 덱(`.pptx`, 한국어). `scripts/build_<주제>_pptx.py`로 만든다. |
+| `sheets/` | 최신 통합 문서(`.xlsx`, 한국어). `scripts/build_<주제>_xlsx.py`로 만든다. |
+| `.claude/skills/` | 이 프로젝트 전용 Claude Code 스킬. `mk-ppt/`는 python-pptx로 `.pptx` 덱을, `mk-xls/`는 openpyxl로 `.xlsx` 통합 문서를, `mk-doc/`은 python-docx로 `.docx` 문서를 만들고 수정한다. |
 | `archive/` | 이전 버전 산출물을 참고용으로 보관한다. 위와 같은 구조를 따른다(예: `archive/research/`). 수정하지 않으며, 요청이 있을 때만 읽는다. |
 | `translate/` | 모든 `.md` 파일의 한국어 번역본. 원본 경로를 그대로 따른다(`translate/archive/` 포함). |
 

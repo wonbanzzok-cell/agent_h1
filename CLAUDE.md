@@ -19,8 +19,11 @@
 | Path | Purpose |
 |------|---------|
 | `research/` | Current research notes (`.md`, English). Name: `<topic>-research-<YYYY-MM-DD>.md`. |
-| `report/` | Current reports (`.docx`, Korean). |
+| `report/` | Current reports (`.docx`, Korean). Built by `scripts/build_report.js` or by python-docx scripts `scripts/build_<topic>_docx.py`. |
 | `scripts/` | Scripts that build outputs. `scripts/build_report.js` builds `report/AI_발전_보고서.docx`. |
+| `slides/` | Current slide decks (`.pptx`, Korean), built by `scripts/build_<topic>_pptx.py`. |
+| `sheets/` | Current workbooks (`.xlsx`, Korean), built by `scripts/build_<topic>_xlsx.py`. |
+| `.claude/skills/` | Project-only Claude Code skills. `mk-ppt/` builds and edits `.pptx` decks with python-pptx; `mk-xls/` builds and edits `.xlsx` workbooks with openpyxl; `mk-doc/` builds and edits `.docx` documents with python-docx. |
 | `archive/` | Superseded outputs, kept for reference. Mirrors the layout above (e.g. `archive/research/`). Do not edit; read only when asked. |
 | `translate/` | Korean translations of every `.md` file, mirroring paths (including `translate/archive/`). |
 
