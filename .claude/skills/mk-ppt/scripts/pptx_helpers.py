@@ -11,12 +11,13 @@ from pathlib import Path
 
 from pptx import Presentation
 from pptx.dml.color import RGBColor
+from pptx.enum.shapes import MSO_SHAPE
 from pptx.opc.constants import RELATIONSHIP_TYPE as RT
 from pptx.oxml.ns import qn
 from pptx.shapes.group import GroupShape
 from pptx.util import Emu, Pt
 
-DEFAULT_KO_FONT = "맑은 고딕"
+DEFAULT_KO_FONT = "Noto Sans KR"
 _R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 
 
@@ -127,6 +128,64 @@ def apply_korean_font(prs, name: str = DEFAULT_KO_FONT) -> None:
             for para in tf.paragraphs:
                 for run in para.runs:
                     set_font(run.font, name)
+
+
+# -- pink theme ------------------------------------------------------------
+
+PINK_THEME = {
+    "background": "FFF0F5",  # lavender blush
+    "primary": "FF69B4",     # hot pink: titles
+    "secondary": "F4A6C1",   # rose: accent bars, shapes
+    "accent": "C2185B",      # deep pink: highlights
+    "text": "4A4A4A",        # dark gray: body text
+}
+
+
+def set_slide_background(slide, color: str) -> None:
+    """Fill `slide`'s background with a solid hex color such as "FFF0F5"."""
+    fill = slide.background.fill
+    fill.solid()
+    fill.fore_color.rgb = RGBColor.from_string(color)
+
+
+def add_accent_bar(slide, prs, color: str = PINK_THEME["secondary"],
+                   top: Emu = Emu(1600200), height: Emu = Emu(73152)):
+    """Add a thin full-width bar (default: just under the title) and return it."""
+    margin = Emu(457200)  # 0.5 in
+    bar = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, margin, top,
+                                 prs.slide_width - 2 * margin, height)
+    bar.fill.solid()
+    bar.fill.fore_color.rgb = RGBColor.from_string(color)
+    bar.line.fill.background()
+    bar.shadow.inherit = False
+    return bar
+
+
+def apply_pink_theme(prs, theme: dict = PINK_THEME,
+                     font: str = DEFAULT_KO_FONT) -> None:
+    """Apply the pink theme to every slide: background, title and body colors, font.
+
+    Titles get `theme["primary"]` in bold, other text gets `theme["text"]`.
+    Call it after all content is added. Charts are not touched.
+    """
+    for slide in prs.slides:
+        set_slide_background(slide, theme["background"])
+        title = slide.shapes.title
+        for shape in slide.shapes:
+            is_title = title is not None and shape.shape_id == title.shape_id
+            if not shape.has_text_frame:
+                continue
+            for para in shape.text_frame.paragraphs:
+                for run in para.runs:
+                    if is_title:
+                        set_font(run.font, font, bold=True, color=theme["primary"])
+                    else:
+                        set_font(run.font, font, color=theme["text"])
+        for tf in _iter_text_frames(slide.shapes):
+            for para in tf.paragraphs:
+                for run in para.runs:
+                    if run.font._rPr.find(qn("a:ea")) is None:
+                        set_font(run.font, font)
 
 
 # -- slide management ------------------------------------------------------

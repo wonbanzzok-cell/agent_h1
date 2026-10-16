@@ -71,7 +71,7 @@ f.color.rgb = RGBColor(0x1F, 0x4E, 0x79)
 run.hyperlink.address = "https://example.com"
 ```
 
-한글 텍스트: `font.name`은 영문 글꼴만 설정한다. `set_font(run.font, "맑은 고딕")`을 쓰거나 저장 전에 `apply_korean_font(prs)`를 호출한다.
+한글 텍스트: `font.name`은 영문 글꼴만 설정한다. `set_font(run.font, "Noto Sans KR")`을 쓰거나 저장 전에 `apply_korean_font(prs)`를 호출한다.
 
 ## 4. 도형
 
@@ -170,7 +170,7 @@ plot.data_labels.position = XL_LABEL_POSITION.OUTSIDE_END
 series = plot.series[0]
 series.format.fill.solid(); series.format.fill.fore_color.rgb = RGBColor(0x1F, 0x4E, 0x79)
 
-chart.font.name = "맑은 고딕"; chart.font.size = Pt(12)   # chart-wide font
+chart.font.name = "Noto Sans KR"; chart.font.size = Pt(12)   # chart-wide font
 chart.replace_data(new_data)                               # swap data, keep formatting
 ```
 

@@ -24,11 +24,14 @@
 | `slides/` | 최신 슬라이드 덱(`.pptx`, 한국어). `scripts/build_<주제>_pptx.py`로 만든다. |
 | `sheets/` | 최신 통합 문서(`.xlsx`, 한국어). `scripts/build_<주제>_xlsx.py`로 만든다. |
 | `.claude/skills/` | 이 프로젝트 전용 Claude Code 스킬. `mk-ppt/`는 python-pptx로 `.pptx` 덱을, `mk-xls/`는 openpyxl로 `.xlsx` 통합 문서를, `mk-doc/`은 python-docx로 `.docx` 문서를 만들고 수정한다. |
+| `.claude/rules/` | 프로젝트 규칙(`.md`, 영어). Claude Code가 자동으로 읽는다. `ppt-rule-v1/ppt-rule-v1.md`는 `.pptx` 덱을 만들 때의 규칙을 정한다. |
+| `references/` | 산출물을 만들 때 참고하는 자료(`.md`, 영어). `ppt/slide-design-system.md`는 `.pptx` 덱의 디자인 가이드(색상, 폰트, 레이아웃)다. |
 | `archive/` | 이전 버전 산출물을 참고용으로 보관한다. 위와 같은 구조를 따른다(예: `archive/research/`). 수정하지 않으며, 요청이 있을 때만 읽는다. |
 | `translate/` | 모든 `.md` 파일의 한국어 번역본. 원본 경로를 그대로 따른다(`translate/archive/` 포함). |
 
 - 보고서 생성: 처음 한 번 `npm install` 후 `npm run build:report`. 보고서 내용을 바꾸려면 `scripts/build_report.js`를 수정하고 다시 생성한다.
 - `node_modules/`는 git에서 제외한다.
+- `.pptx` 작업은 `.claude/rules/ppt-rule-v1/ppt-rule-v1.md`를 먼저 적용하고, 그다음 사용자의 디자인 파일, 그다음 `mk-ppt` 스킬 순서로 따른다. 전역 `pptx` 스킬이 아니라 프로젝트 `mk-ppt` 스킬을 쓴다.
 
 # 작업 방식
 

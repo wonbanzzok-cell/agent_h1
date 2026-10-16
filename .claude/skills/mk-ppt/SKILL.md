@@ -7,6 +7,12 @@ description: Build or edit PowerPoint (.pptx) decks in this project with python-
 
 Make and edit `.pptx` files for this project by writing a Python build script that uses python-pptx, running it, and checking the result by reading the file back.
 
+## Read first: PPT rules take precedence
+
+- Before any `.pptx` work, apply `.claude/rules/ppt-rule-v1/ppt-rule-v1.md` (loaded automatically). If this skill and the rule file disagree, the rule file wins.
+- Order of precedence: **rule file → the user's design file (e.g. `references/ppt/slide-design-system.md`) → this skill**. A design file may not go below the rule file's minimums (font sizes, margins, gaps).
+- The pink theme (`PINK_THEME`, `apply_pink_theme`) and the `Noto Sans KR` font below are fallback defaults. Use them only when the user says to go ahead without a design file.
+
 ## Environment
 
 - Python 3.13 and python-pptx 1.0.2 are installed globally for this user.
@@ -29,10 +35,12 @@ Make and edit `.pptx` files for this project by writing a Python build script th
 
 ## Workflow
 
-1. **Plan the deck.** Write a short slide outline (slide title + key points per slide) and include it in the todo list you report to the user, so they approve the structure before you build.
-2. **Write the build script** in `scripts/` from the template below. One function per slide keeps the script easy to edit later.
-3. **Run it** and fix any errors.
-4. **Verify by reading the deck back** with python-pptx: slide count, each slide's title, that tables/charts/images exist where planned, and that Korean text uses the Korean font. Report what you checked. You cannot see the rendered slides, so say so instead of claiming the layout looks right; suggest the user open the file in PowerPoint.
+1. **Get the design file.** Read the design `.md` the user provides. If none was given, ask for one; use the fallback defaults only if the user says to go ahead without one.
+2. **Plan the deck.** Use 8 slides unless the user asks otherwise. Write a short slide outline (slide title + key points per slide) and include it in the todo list you report to the user, so they approve the structure before you build. If the content does not fit, say so and suggest splitting or cutting.
+3. **Write the build script** in `scripts/` from the template below. Plan each element's position on a grid first. One function per slide keeps the script easy to edit later.
+4. **Run it** and fix any errors.
+5. **Verify by reading the deck back** with python-pptx: slide count, each slide's title, that tables/charts/images exist where planned, and that Korean text uses the Korean font. Also run the rule file's checks: every shape inside the slide, no unintended overlaps, and no text likely to overflow its box. Fix and check again until clean.
+6. **Report.** Say what you checked, which design rules you applied, and where you deviated and why. You cannot see the rendered slides, so say so instead of claiming the layout looks right; ask the user to open the file in PowerPoint.
 
 ## Build script template
 
@@ -74,7 +82,11 @@ if __name__ == "__main__":
 | `add_title_slide(prs, title, subtitle=None)` | Title slide from layout 0. |
 | `add_bullet_slide(prs, title, items)` | Bullets; an item can be `"text"` or `("text", level)`. |
 | `set_font(font, name=None, size=None, bold=None, color=None)` | `font` is `run.font` or `paragraph.font`. Sets both the Latin and East Asian font; `font.name` alone does not change Korean text. `color` is hex like `"1F4E79"`. |
-| `apply_korean_font(prs, name="맑은 고딕")` | Applies the Korean font to every run in every shape, group, and table (not charts). |
+| `apply_korean_font(prs, name="Noto Sans KR")` | Applies the Korean font to every run in every shape, group, and table (not charts). |
+| `PINK_THEME` | Pink palette dict (hex): `background`, `primary` (titles), `secondary` (bars), `accent`, `text` (body). |
+| `set_slide_background(slide, color)` | Solid background fill from a hex color. |
+| `add_accent_bar(slide, prs, color=PINK_THEME["secondary"], top=..., height=...)` | Thin full-width bar, by default just under the title. |
+| `apply_pink_theme(prs, theme=PINK_THEME, font="Noto Sans KR")` | Pink background on every slide, bold pink titles, gray body text, theme font everywhere. Call after all content is added. |
 | `delete_slide(prs, slide)` | No official API for this. |
 | `duplicate_slide(prs, slide)` | No official API; copies shapes, background, and image/link relationships. Notes are not copied, and a copied chart shares data with the original, so rebuild charts instead. |
 | `move_slide(prs, slide, new_index)` | No official API for reordering. |

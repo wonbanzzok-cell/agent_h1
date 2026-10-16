@@ -24,11 +24,14 @@
 | `slides/` | Current slide decks (`.pptx`, Korean), built by `scripts/build_<topic>_pptx.py`. |
 | `sheets/` | Current workbooks (`.xlsx`, Korean), built by `scripts/build_<topic>_xlsx.py`. |
 | `.claude/skills/` | Project-only Claude Code skills. `mk-ppt/` builds and edits `.pptx` decks with python-pptx; `mk-xls/` builds and edits `.xlsx` workbooks with openpyxl; `mk-doc/` builds and edits `.docx` documents with python-docx. |
+| `.claude/rules/` | Project rules (`.md`, English), loaded automatically by Claude Code. `ppt-rule-v1/ppt-rule-v1.md` sets the rules for building `.pptx` decks. |
+| `references/` | Reference material (`.md`, English) used when building outputs. `ppt/slide-design-system.md` is the design guide (colors, fonts, layouts) for `.pptx` decks. |
 | `archive/` | Superseded outputs, kept for reference. Mirrors the layout above (e.g. `archive/research/`). Do not edit; read only when asked. |
 | `translate/` | Korean translations of every `.md` file, mirroring paths (including `translate/archive/`). |
 
 - Build the report: `npm install` once, then `npm run build:report`. To change report content, edit `scripts/build_report.js` and rebuild.
 - `node_modules/` is git-ignored.
+- For any `.pptx` work, apply `.claude/rules/ppt-rule-v1/ppt-rule-v1.md` first, then the user's design file, then the `mk-ppt` skill. Use the project `mk-ppt` skill, not the global `pptx` skill.
 
 # Workflow
 
