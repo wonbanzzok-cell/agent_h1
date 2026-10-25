@@ -23,6 +23,7 @@
 | `scripts/` | 산출물을 만드는 스크립트. `scripts/build_report.js`는 `report/AI_발전_보고서.docx`를 만든다. |
 | `slides/` | 최신 슬라이드 덱(`.pptx`, 한국어). `scripts/build_<주제>_pptx.py`로 만든다. |
 | `sheets/` | 최신 통합 문서(`.xlsx`, 한국어). `scripts/build_<주제>_xlsx.py`로 만든다. |
+| `blog/` | 네이버 블로그 글 원고. 글마다 `<주제>-<YYYY-MM-DD>/` 폴더 하나에 `post.txt`(한국어 원고), `images/`(내려받은 이미지), 에디터 스크린샷을 둔다. |
 | `.claude/skills/` | 이 프로젝트 전용 Claude Code 스킬. `mk-ppt/`는 python-pptx로 `.pptx` 덱을, `mk-xls/`는 openpyxl로 `.xlsx` 통합 문서를, `mk-doc/`은 python-docx로 `.docx` 문서를 만들고 수정한다. |
 | `.claude/rules/` | 프로젝트 규칙(`.md`, 영어). Claude Code가 자동으로 읽는다. `ppt-rule-v1/ppt-rule-v1.md`는 `.pptx` 덱을 만들 때의 규칙을 정한다. |
 | `references/` | 산출물을 만들 때 참고하는 자료(`.md`, 영어). `ppt/slide-design-system.md`는 `.pptx` 덱의 디자인 가이드(색상, 폰트, 레이아웃)다. |

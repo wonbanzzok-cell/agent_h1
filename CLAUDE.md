@@ -23,6 +23,7 @@
 | `scripts/` | Scripts that build outputs. `scripts/build_report.js` builds `report/AI_발전_보고서.docx`. |
 | `slides/` | Current slide decks (`.pptx`, Korean), built by `scripts/build_<topic>_pptx.py`. |
 | `sheets/` | Current workbooks (`.xlsx`, Korean), built by `scripts/build_<topic>_xlsx.py`. |
+| `blog/` | Naver blog post drafts, one folder per post: `<topic>-<YYYY-MM-DD>/` with `post.txt` (Korean draft), `images/` (downloaded images) and editor screenshots. |
 | `.claude/skills/` | Project-only Claude Code skills. `mk-ppt/` builds and edits `.pptx` decks with python-pptx; `mk-xls/` builds and edits `.xlsx` workbooks with openpyxl; `mk-doc/` builds and edits `.docx` documents with python-docx. |
 | `.claude/rules/` | Project rules (`.md`, English), loaded automatically by Claude Code. `ppt-rule-v1/ppt-rule-v1.md` sets the rules for building `.pptx` decks. |
 | `references/` | Reference material (`.md`, English) used when building outputs. `ppt/slide-design-system.md` is the design guide (colors, fonts, layouts) for `.pptx` decks. |
