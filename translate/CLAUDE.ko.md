@@ -24,8 +24,10 @@
 | `slides/` | 최신 슬라이드 덱(`.pptx`, 한국어). `scripts/build_<주제>_pptx.py`로 만든다. |
 | `sheets/` | 최신 통합 문서(`.xlsx`, 한국어). `scripts/build_<주제>_xlsx.py`로 만든다. |
 | `blog/` | 네이버 블로그 글 원고. 글마다 `<주제>-<YYYY-MM-DD>/` 폴더 하나에 `post.txt`(한국어 원고), `images/`(내려받은 이미지), 에디터 스크린샷을 둔다. |
+| `images/` | 블로그 글과 상관없는 AI 생성 이미지. 묶음마다 `<topic>-<YYYY-MM-DD>/` 폴더 하나에 `<topic>-<NN>.<ext>` 파일과 `metadata.json`을 둔다. `.claude/rules/image-rule-v1/image-rule-v1.md` 참고. |
+| `cardnews/` | 카드뉴스 기획안(`.md`, 영어). 기획안마다 파일 하나: `<topic>-<YYYY-MM-DD>.md`, 총 8장이고 1장은 썸네일. |
 | `.claude/skills/` | 이 프로젝트 전용 Claude Code 스킬. `mk-ppt/`는 python-pptx로 `.pptx` 덱을, `mk-xls/`는 openpyxl로 `.xlsx` 통합 문서를, `mk-doc/`은 python-docx로 `.docx` 문서를 만들고 수정한다. |
-| `.claude/rules/` | 프로젝트 규칙(`.md`, 영어). Claude Code가 자동으로 읽는다. `ppt-rule-v1/ppt-rule-v1.md`는 `.pptx` 덱을 만들 때의 규칙을 정한다. |
+| `.claude/rules/` | 프로젝트 규칙(`.md`, 영어). Claude Code가 자동으로 읽는다. `ppt-rule-v1/ppt-rule-v1.md`는 `.pptx` 덱을 만들 때의 규칙을 정한다. `browser-rule-v1/browser-rule-v1.md`는 Playwright MCP로 웹 브라우저를 언제, 어떻게 제어할지 정한다. `image-rule-v1/image-rule-v1.md`는 AI로 만든 이미지(예: Higgsfield MCP)를 프로젝트에 저장하는 방법을 정한다. |
 | `references/` | 산출물을 만들 때 참고하는 자료(`.md`, 영어). `ppt/slide-design-system.md`는 `.pptx` 덱의 디자인 가이드(색상, 폰트, 레이아웃)다. |
 | `archive/` | 이전 버전 산출물을 참고용으로 보관한다. 위와 같은 구조를 따른다(예: `archive/research/`). 수정하지 않으며, 요청이 있을 때만 읽는다. |
 | `translate/` | 모든 `.md` 파일의 한국어 번역본. 원본 경로를 그대로 따른다(`translate/archive/` 포함). |

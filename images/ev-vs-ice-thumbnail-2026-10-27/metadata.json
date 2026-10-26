@@ -1,0 +1,40 @@
+[
+  {
+    "file": "ev-vs-ice-thumbnail-01.png",
+    "tool": "higgsfield",
+    "model": "z_image",
+    "prompt": "Square 1:1 3D render, minimal studio scene, a classic brass balance scale with exactly two hanging pans, one on the left and one on the right, left pan holds one miniature teal electric car with a small black charging cable plugged in, right pan holds one miniature orange gasoline car with a small orange fuel drop beside it, the left side hangs clearly lower, a few gold coins stacked on the floor near the scale base, soft gradient background from teal at the top to warm peach at the bottom, soft studio lighting, playful clay-like style, large empty space in the top third, empty bottom-right corner, no text, no letters, no numbers, no logos",
+    "aspect_ratio": "1:1",
+    "job_id": "a70ce1b7-790b-4a7c-8b5e-4e47590d24d3",
+    "raw_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3LAxhduPeE1L3FSvUsGKmScNFRP/hf_20261026_150155_a70ce1b7-790b-4a7c-8b5e-4e47590d24d3.png",
+    "credits": 0.15,
+    "created_at": "2026-10-27",
+    "used_for": "cardnews/ev-vs-ice-5yr-cost-2026-10-26.md, card 1 (thumbnail). Regenerated in the direction of images/ev-vs-ice-thumbnail-2026-10-26/ev-vs-ice-thumbnail-02.png"
+  },
+  {
+    "file": "ev-vs-ice-thumbnail-02.png",
+    "tool": "higgsfield",
+    "model": "z_image",
+    "prompt": "Square 1:1 3D render, minimal studio scene, a classic brass balance scale with exactly two hanging pans, one on the left and one on the right, left pan holds one miniature teal electric car with a small black charging cable plugged in, right pan holds one miniature orange gasoline car with a small orange fuel drop beside it, the left side hangs clearly lower, a few gold coins stacked on the floor near the scale base, soft gradient background from teal at the top to warm peach at the bottom, soft studio lighting, playful clay-like style, large empty space in the top third, empty bottom-right corner, no text, no letters, no numbers, no logos",
+    "aspect_ratio": "1:1",
+    "job_id": "ca74ec70-8e6c-46d9-ac98-b6915fe98408",
+    "raw_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3LAxhduPeE1L3FSvUsGKmScNFRP/hf_20261026_150155_ca74ec70-8e6c-46d9-ac98-b6915fe98408.png",
+    "credits": 0.15,
+    "created_at": "2026-10-27",
+    "used_for": "cardnews/ev-vs-ice-5yr-cost-2026-10-26.md, card 1 (thumbnail). Regenerated in the direction of images/ev-vs-ice-thumbnail-2026-10-26/ev-vs-ice-thumbnail-02.png"
+  },
+  {
+    "file": "ev-vs-ice-thumbnail-03.png",
+    "tool": "figma",
+    "model": null,
+    "prompt": null,
+    "figma_file": "https://www.figma.com/design/gm3Fg5teUQKlpAWfL0tYIr",
+    "figma_node_id": "1:2",
+    "figma_frame": "Thumbnail A (image 01)",
+    "source_image": "ev-vs-ice-thumbnail-01.png",
+    "size": "1080x1080",
+    "credits": 0,
+    "created_at": "2026-10-27",
+    "used_for": "cardnews/ev-vs-ice-5yr-cost-2026-10-26.md, card 1 (thumbnail). Final composed thumbnail with copy, exported from Figma."
+  }
+]

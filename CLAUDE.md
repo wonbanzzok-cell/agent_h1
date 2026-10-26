@@ -24,8 +24,10 @@
 | `slides/` | Current slide decks (`.pptx`, Korean), built by `scripts/build_<topic>_pptx.py`. |
 | `sheets/` | Current workbooks (`.xlsx`, Korean), built by `scripts/build_<topic>_xlsx.py`. |
 | `blog/` | Naver blog post drafts, one folder per post: `<topic>-<YYYY-MM-DD>/` with `post.txt` (Korean draft), `images/` (downloaded images) and editor screenshots. |
+| `images/` | AI-generated images not tied to a blog post, one folder per set: `<topic>-<YYYY-MM-DD>/` with `<topic>-<NN>.<ext>` files and `metadata.json`. See `.claude/rules/image-rule-v1/image-rule-v1.md`. |
+| `cardnews/` | Card news plans (`.md`, English), one file per plan: `<topic>-<YYYY-MM-DD>.md`, 8 cards with card 1 as the thumbnail. |
 | `.claude/skills/` | Project-only Claude Code skills. `mk-ppt/` builds and edits `.pptx` decks with python-pptx; `mk-xls/` builds and edits `.xlsx` workbooks with openpyxl; `mk-doc/` builds and edits `.docx` documents with python-docx. |
-| `.claude/rules/` | Project rules (`.md`, English), loaded automatically by Claude Code. `ppt-rule-v1/ppt-rule-v1.md` sets the rules for building `.pptx` decks. |
+| `.claude/rules/` | Project rules (`.md`, English), loaded automatically by Claude Code. `ppt-rule-v1/ppt-rule-v1.md` sets the rules for building `.pptx` decks. `browser-rule-v1/browser-rule-v1.md` sets when and how to control a web browser with Playwright MCP. `image-rule-v1/image-rule-v1.md` sets how to save AI-generated images (e.g. from Higgsfield MCP) into the project. |
 | `references/` | Reference material (`.md`, English) used when building outputs. `ppt/slide-design-system.md` is the design guide (colors, fonts, layouts) for `.pptx` decks. |
 | `archive/` | Superseded outputs, kept for reference. Mirrors the layout above (e.g. `archive/research/`). Do not edit; read only when asked. |
 | `translate/` | Korean translations of every `.md` file, mirroring paths (including `translate/archive/`). |

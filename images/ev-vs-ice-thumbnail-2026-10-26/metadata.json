@@ -1,0 +1,28 @@
+[
+  {
+    "file": "ev-vs-ice-thumbnail-01.png",
+    "tool": "higgsfield",
+    "model": "z_image",
+    "prompt": "Square 1:1 3D render, minimal studio scene, a large brass balance scale, left pan holds a miniature teal electric car with a small charging plug, right pan holds a miniature orange gasoline car with a fuel drop and a stack of coins, the scale tilts slightly so the electric car side is lower, soft gradient background from teal to orange, soft studio lighting, playful clay-like style, empty space at the top third, empty bottom-right corner, no text, no letters, no numbers, no logos",
+    "aspect_ratio": "1:1",
+    "job_id": "ca6f128a-305c-4a68-bdeb-1b79694d4762",
+    "raw_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3LAxhduPeE1L3FSvUsGKmScNFRP/hf_20261026_145732_ca6f128a-305c-4a68-bdeb-1b79694d4762.png",
+    "credits": 0.15,
+    "created_at": "2026-10-26",
+    "used_for": "cardnews/ev-vs-ice-5yr-cost-2026-10-26.md, card 1 (thumbnail)",
+    "deleted": "2026-10-27",
+    "deleted_reason": "Scale structure error: three pans and two orange cars on the right."
+  },
+  {
+    "file": "ev-vs-ice-thumbnail-02.png",
+    "tool": "higgsfield",
+    "model": "z_image",
+    "prompt": "Square 1:1 3D render, minimal studio scene, a large brass balance scale, left pan holds a miniature teal electric car with a small charging plug, right pan holds a miniature orange gasoline car with a fuel drop and a stack of coins, the scale tilts slightly so the electric car side is lower, soft gradient background from teal to orange, soft studio lighting, playful clay-like style, empty space at the top third, empty bottom-right corner, no text, no letters, no numbers, no logos",
+    "aspect_ratio": "1:1",
+    "job_id": "03a0a040-29ab-4399-86c1-7bfbb208f254",
+    "raw_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3LAxhduPeE1L3FSvUsGKmScNFRP/hf_20261026_145732_03a0a040-29ab-4399-86c1-7bfbb208f254.png",
+    "credits": 0.15,
+    "created_at": "2026-10-26",
+    "used_for": "cardnews/ev-vs-ice-5yr-cost-2026-10-26.md, card 1 (thumbnail)"
+  }
+]
